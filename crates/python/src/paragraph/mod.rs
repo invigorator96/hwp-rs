@@ -79,18 +79,18 @@ impl PyParagraph {
 
         for control in &self.paragraph.controls {
             match control {
-                Control::Table(control) => {
-                    for cell in &control.cells {
-                        result = concat_paragraph_in_list(result, &cell.paragraph_list, recursive);
-                    }
+                // Control::Table(control) => {
+                //     for cell in &control.cells {
+                //         result = concat_paragraph_in_list(result, &cell.paragraph_list, recursive);
+                //     }
 
-                    // TODO: (@hahnlee) 순서 피드백 필요
-                    if control.common_properties.caption.is_some() {
-                        let caption = control.common_properties.caption.as_ref().unwrap();
-                        result =
-                            concat_paragraph_in_list(result, &caption.paragraph_list, recursive);
-                    }
-                }
+                //     // TODO: (@hahnlee) 순서 피드백 필요
+                //     if control.common_properties.caption.is_some() {
+                //         let caption = control.common_properties.caption.as_ref().unwrap();
+                //         result =
+                //             concat_paragraph_in_list(result, &caption.paragraph_list, recursive);
+                //     }
+                // }
                 // 개체 공통 속성 컨트롤
                 // TODO: (@hahnlee) 더 좋은 방법 찾기
                 Control::GenShapeObject(control) => {
