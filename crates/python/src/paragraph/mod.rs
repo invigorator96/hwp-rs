@@ -192,9 +192,6 @@ impl PyParagraph {
         for control in &self.paragraph.controls {
             if let Control::Table(control) = control {
                 result.push(PyTable::from_rust(control).to_py_any());
-                if control.common_properties.caption.is_some(){
-                    
-                }
                 if recursive {
                     for cell in &control.cells {
                         // TODO: (@hahnlee) 효츌적인 방법 생각하기
